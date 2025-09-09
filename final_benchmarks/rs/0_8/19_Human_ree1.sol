@@ -1,4 +1,7 @@
-contract C {
+pragma solidity ^0.8.0;
+
+// SPDX-License-Identifier: GPL-3.0
+contract Victim {
     mapping (address => uint256) public balances;
 
     modifier isHuman() {
@@ -9,17 +12,15 @@ contract C {
         _;
     }
 
-    function pay(address to, uint256 amt) internal {
+    function transfer(address to) isHuman() public {
+        uint256 amt = balances[msg.sender];
+        require(amt > 0, "Insufficient funds");
         (bool success, ) = to.call{value:amt}("");
         require(success, "Call failed");
+        balances[msg.sender] = 0;
     }
 
-    function transfer(address to, uint256 amt) isHuman() public {
-        require(balances[msg.sender] >= amt, "Insufficient funds");
-        pay(to, amt);
-        balances[msg.sender] -= amt;
-    }
-
+    // this is reentrant because the "to" parameter above could be a contract reentering into the deposit() and changing the state
     function deposit() isHuman() public payable {
         balances[msg.sender] += msg.value;       
     }
