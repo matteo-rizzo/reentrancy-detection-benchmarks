@@ -1,4 +1,4 @@
-# Reentrancy Detection Benchmarks for Solidity Smart Contracts
+# Manually Verified Reentrancy Datasets for Smart Contracts
 
 This repository provides two meticulously curated and **manually verified** benchmark datasets for reentrancy vulnerability research in Solidity smart contracts. Our goal is to offer high-quality resources that address the limitations of noisy, automatically-labeled datasets commonly used in prior work. All contracts in the final benchmarks are labeled according to a **clearly defined reentrancy taxonomy** detailed in our accompanying paper.
 
@@ -85,7 +85,7 @@ This section guides you through reproducing the experiments presented in our pap
 1.  **Clone Repository:**
 
     ```bash
-    git clone https://github.com/matteo-rizzo/reentrancy-detection-benchmarks.git # Replace with actual URL
+    git clone https://github.com/your-username/your-repo-name.git # Replace with actual URL
     cd your-repo-name
     ```
 
