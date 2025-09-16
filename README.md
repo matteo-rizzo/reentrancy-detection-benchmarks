@@ -1,6 +1,7 @@
-# Manually Verified Reentrancy Datasets for Smart Contracts
+# Reentrancy Detection Tools in the Age of LLMs
 
-This repository provides two curated and **manually verified** benchmark datasets for reentrancy vulnerability research in Solidity smart contracts. Our goal is to offer high-quality resources that address the limitations of noisy, automatically-labeled datasets commonly used in prior work. All contracts in the final benchmarks are labeled according to a **clearly defined reentrancy systematization** detailed in our accompanying paper.
+This repository includes the data and the supplementary material to the submission to the FSE 2026 conference entitled `Reentrancy Detection Tools in the Age of LLMs`.
+It provides two curated and **manually verified** benchmark datasets for reentrancy vulnerability research in Solidity smart contracts. Our goal is to offer high-quality resources that address the limitations of noisy, automatically-labeled datasets commonly used in prior work. All contracts in the final benchmarks are labeled according to a **clearly defined reentrancy systematization** detailed in our accompanying paper.
 
 The two primary datasets contributed are:
 
