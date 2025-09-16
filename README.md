@@ -45,7 +45,10 @@ Following the initial preprocessing, a manual verification phase was undertaken 
 
       * This is a separate, novel collection of **150 handcrafted or carefully selected contracts.**
       * It is constructed to cover a **defined systematization of reentrancy scenarios**, focusing on patterns that are subtle, involve modern Solidity features, or exhibit complex control flows, thus challenging existing detectors.
-      * All 150 TRS contracts were **manually created and/or verified** according to our systematization, with their labels (reentrant/safe within the context of the specific scenario) confirmed.
+      * All 150 reentrancy scenarios were **manually created and/or verified** according to our systematization, with their labels (reentrant/safe within the context of the specific scenario) confirmed.
+        - In the `0_8` subfolder all Solidity source files are collected
+        - In the `bins` subfolder all binary compiled files are collected in hex format
+        - Multiple `.csv` files contain the results of the analyzer tool (launched through Smartbugs)
 
 -----
 
@@ -53,10 +56,10 @@ Following the initial preprocessing, a manual verification phase was undertaken 
 
 The final, manually verified benchmark datasets are the primary contributions intended for direct use in research:
 
-  * **Aggregated Benchmark (436 contracts):** Located in `/final_benchmarks/aggregated_benchmark/`
-  * **Reentrancy Scenarios (TRS - 150 contracts):** Located in `/final_benchmarks/trs/`
+  * **Aggregated Benchmark (436 contracts):** Located in `/benchmarks/aggregated-benchmark/`
+  * **Reentrancy Scenarios (RS - 150 handcrafted contracts):** Located in `/benchmarks/rs/`
 
-Each directory typically contains subfolders for `reentrant` and `safe` contracts. The scripts in the `/scripts` directory (at the project root) are available for users interested in reproducing the preprocessing steps for the initial, larger contract pool from the original sources. The scripts for running experiments on the final datasets are located within the `src/` directory.
+The scripts in the `/scripts` directory (at the project root) are available for users interested in reproducing the preprocessing steps for the initial, larger contract pool from the original sources. The scripts for running experiments on the final datasets are located within the `src/` directory.
 
 -----
 
@@ -142,7 +145,7 @@ Experiment scripts are primarily located within `src/ml_dl/scripts/` and `src/ll
     ```bash
     bash explainability.sh # May require arguments for model, dataset, etc.
     ```
-  * This setup interacts with LLM APIs, processes contracts from the benchmark datasets (Aggregated Benchmark or TRS), performs zero-shot classification, and generates explanations.
+  * This setup interacts with LLM APIs, processes contracts from the benchmark datasets (Aggregated Benchmark or RS), performs zero-shot classification, and generates explanations.
   * Specify target LLMs as per paper methodology (e.g., via script arguments or configurations loaded by `src/llms/classes/LLMHandler.py`).
   * Results (JSON outputs, metrics) are saved to a designated output directory.
   * The `src/llms/explanations.zip` contains pre-generated explanations for analysis or use in the LLM-based evaluation of explanations.
