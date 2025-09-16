@@ -1,14 +1,14 @@
 # Manually Verified Reentrancy Datasets for Smart Contracts
 
-This repository provides two meticulously curated and **manually verified** benchmark datasets for reentrancy vulnerability research in Solidity smart contracts. Our goal is to offer high-quality resources that address the limitations of noisy, automatically-labeled datasets commonly used in prior work. All contracts in the final benchmarks are labeled according to a **clearly defined reentrancy taxonomy** detailed in our accompanying paper.
+This repository provides two curated and **manually verified** benchmark datasets for reentrancy vulnerability research in Solidity smart contracts. Our goal is to offer high-quality resources that address the limitations of noisy, automatically-labeled datasets commonly used in prior work. All contracts in the final benchmarks are labeled according to a **clearly defined reentrancy systematization** detailed in our accompanying paper.
 
 The two primary datasets contributed are:
 
-1.  **Aggregated Benchmark (High-Confidence Set):** A collection of **436 unique contracts (122 reentrant, 314 safe)**. This benchmark was derived from the aggregation of three public academic sources, followed by a rigorous manual verification and relabeling process based on our taxonomy:
+1.  **Aggregated Benchmark (High-Confidence Set):** A collection of **436 unique contracts (122 reentrant, 314 safe)**. This benchmark was derived from the aggregation of three public academic sources, followed by a rigorous manual verification and relabeling process based on our systematization:
       * [Consolidated Ground Truth (CGT)](https://github.com/gsalzer/cgt) (`cgt`)
       * [HuangGai (HG)](https://github.com/xf97/HuangGai) (`hg`)
       * [Reentrancy Study (RS)](https://github.com/InPlusLab/ReentrancyStudy-Data) (`rs`)
-2.  **Taxonomy Reentrancy Scenarios (TRS):** A novel, handcrafted set of **150 unique contracts**. This dataset is specifically constructed to represent a defined **taxonomy of reentrancy scenarios**, including those that are subtle, involve modern Solidity features, or exhibit complex control flows, making them challenging for existing detectors. Each contract in the TRS has also been manually verified and labeled according to our taxonomy.
+2.  **Reentrancy Scenarios (RS):** A novel, handcrafted set of **150 unique contracts**. This dataset is specifically constructed to represent a defined systematization **of reentrancy scenarios**, including those that are subtle, involve modern Solidity features, or exhibit complex control flows, making them challenging for existing detectors. Each contract in the RS has also been manually verified and labeled according to our systematization.
 
 This repository includes the original source data (where permissible by original licenses), scripts for preprocessing the initial aggregated pool, and, most importantly, the final benchmark datasets themselves.
 
@@ -33,7 +33,7 @@ This initial phase involves creating a large pool of unique, compilable Solidity
 
 **2. Manual Verification & Final Benchmark Creation (Core Contribution):**
 
-Following the initial preprocessing, a rigorous manual verification phase was undertaken based on our defined reentrancy taxonomy:
+Following the initial preprocessing, a manual verification phase was undertaken based on our defined reentrancy systematization:
 
   * **Aggregated Benchmark (High-Confidence Set):**
 
@@ -41,11 +41,11 @@ Following the initial preprocessing, a rigorous manual verification phase was un
       * From the "potentially safe" pool, a diverse sample of 291 contracts (those confidently marked safe by prior human analysis and multiple tools) was manually inspected and relabeled.
       * This meticulous process yielded the final **Aggregated Benchmark of 436 high-confidence contracts (122 reentrant, 314 safe)**. This set is recommended as the gold standard for evaluating general reentrancy detection.
 
-  * **Taxonomy Reentrancy Scenarios (TRS):**
+  * **Reentrancy Scenarios (RS):**
 
       * This is a separate, novel collection of **150 handcrafted or carefully selected contracts.**
-      * It is constructed to cover a **defined taxonomy of reentrancy scenarios**, focusing on patterns that are subtle, involve modern Solidity features, or exhibit complex control flows, thus challenging existing detectors.
-      * All 150 TRS contracts were **manually created and/or verified** according to our taxonomy, with their labels (reentrant/safe within the context of the specific scenario) confirmed.
+      * It is constructed to cover a **defined systematization of reentrancy scenarios**, focusing on patterns that are subtle, involve modern Solidity features, or exhibit complex control flows, thus challenging existing detectors.
+      * All 150 TRS contracts were **manually created and/or verified** according to our systematization, with their labels (reentrant/safe within the context of the specific scenario) confirmed.
 
 -----
 
@@ -54,7 +54,7 @@ Following the initial preprocessing, a rigorous manual verification phase was un
 The final, manually verified benchmark datasets are the primary contributions intended for direct use in research:
 
   * **Aggregated Benchmark (436 contracts):** Located in `/final_benchmarks/aggregated_benchmark/`
-  * **Taxonomy Reentrancy Scenarios (TRS - 150 contracts):** Located in `/final_benchmarks/trs/`
+  * **Reentrancy Scenarios (TRS - 150 contracts):** Located in `/final_benchmarks/trs/`
 
 Each directory typically contains subfolders for `reentrant` and `safe` contracts. The scripts in the `/scripts` directory (at the project root) are available for users interested in reproducing the preprocessing steps for the initial, larger contract pool from the original sources. The scripts for running experiments on the final datasets are located within the `src/` directory.
 
@@ -85,8 +85,8 @@ This section guides you through reproducing the experiments presented in our pap
 1.  **Clone Repository:**
 
     ```bash
-    git clone https://github.com/your-username/your-repo-name.git # Replace with actual URL
-    cd your-repo-name
+    git clone https://github.com/matteo-rizzo/reentrancy-detection-benchmarks.git # Replace with actual URL
+    cd reentrancy-detection-benchmarks
     ```
 
 2.  **Environment & Dependencies:**
@@ -152,7 +152,7 @@ Experiment scripts are primarily located within `src/ml_dl/scripts/` and `src/ll
   * The provided `src` tree does not contain scripts for executing the static analysis tools (e.g., Slither, Mythril).
   * Reproducing this part involves:
     1.  Setting up the [SmartBugs framework](https://github.com/smartbugs/smartbugs).
-    2.  Running the selected static tools via SmartBugs on the **Aggregated Benchmark** and **Taxonomy Reentrancy Scenarios (TRS)**.
+    2.  Running the selected static tools via SmartBugs on the **Aggregated Benchmark** and **Reentrancy Scenarios (RS)**.
     3.  Parsing tool outputs to classify contracts according to the paper's methodology.
 
 ### 4\. Expected Outputs
