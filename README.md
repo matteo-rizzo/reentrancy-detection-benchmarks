@@ -46,7 +46,7 @@ Following the initial preprocessing, a manual verification phase was undertaken 
       * This is a separate, novel collection of **150 handcrafted or carefully selected contracts.**
       * It is constructed to cover a **defined systematization of reentrancy scenarios**, focusing on patterns that are subtle, involve modern Solidity features, or exhibit complex control flows, thus challenging existing detectors.
       * All 150 reentrancy scenarios were **manually created and/or verified** according to our systematization, with their labels (reentrant/safe within the context of the specific scenario) confirmed.
-        - In the `0_8` subfolder all Solidity source files are collected
+        - In the `src` subfolder all Solidity source files are collected
         - In the `bins` subfolder all binary compiled files are collected in hex format
         - Multiple `.csv` files contain the results of the analyzer tool (launched through Smartbugs)
 
