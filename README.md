@@ -85,14 +85,7 @@ This section guides you through reproducing the experiments presented in our pap
 
 ### 1\. Prerequisites and Setup
 
-1.  **Clone Repository:**
-
-    ```bash
-    git clone https://github.com/matteo-rizzo/reentrancy-detection-benchmarks.git # Replace with actual URL
-    cd reentrancy-detection-benchmarks
-    ```
-
-2.  **Environment & Dependencies:**
+1.  **Environment & Dependencies:**
 
       * Python 3.10 or higher is recommended. Create and activate a virtual environment:
         ```bash
@@ -105,7 +98,7 @@ This section guides you through reproducing the experiments presented in our pap
         ```
       * Install dependencies for LLM scripts (review imports in `src/llms/` scripts, e.g., for `openai`, `google-generativeai`).
 
-3.  **LLM API Keys:**
+2.  **LLM API Keys:**
 
       * The LLM experiments (`src/llms/`) require API keys for OpenAI and/or Google AI Studio.
       * Create a `.env` file, typically in the `src/llms/` directory (consult `src/llms/classes/EnvLoader.py` for expected path and variable names).
@@ -115,14 +108,16 @@ This section guides you through reproducing the experiments presented in our pap
         GOOGLE_API_KEY="your_google_api_key"
         ```
 
-### 2\. Dataset Preparation for Model Experiments
+### 3\. Dataset Preparation for Model Experiments
 
 While the root-level `scripts/` prepare a large initial pool, for running the ML/DL/LLM experiments as described in the paper, you will primarily use the final, manually verified datasets located in `/final_benchmarks/`.
 
   * The script `src/ml_dl/scripts/create_dataset_manually_verified.py` is responsible for taking these final benchmark contracts and structuring them into the specific train/validation/test splits (e.g., using 3-fold cross-validation) required by the ML/DL models. Consult this script for its exact inputs and outputs.
   * LLM experiments will run on test splits derived from these final benchmarks.
 
-### 3\. Running Model Evaluations
+> **Note**: Exact splits used for the experiments are reported in the `cv_splits.zip` files in the `benchmarks` subfolders.
+
+### 4\. Running Model Evaluations
 
 Experiment scripts are primarily located within `src/ml_dl/scripts/` and `src/llms/scripts/`. Configuration for ML/DL models can be found in `src/ml_dl/settings.py`, and for LLMs in `src/llms/prompts.py`.
 
@@ -158,7 +153,7 @@ Experiment scripts are primarily located within `src/ml_dl/scripts/` and `src/ll
     2.  Running the selected static tools via SmartBugs on the **Aggregated Benchmark** and **Reentrancy Scenarios (RS)**.
     3.  Parsing tool outputs to classify contracts according to the paper's methodology.
 
-### 4\. Expected Outputs
+### 5\. Expected Outputs
 
   * **ML/DL Models:** Performance metrics (Accuracy, Precision, Recall, F1-score) for each model on both datasets, typically in CSV/text files or printed.
   * **LLMs:**
