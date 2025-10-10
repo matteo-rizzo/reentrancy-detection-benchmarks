@@ -1,0 +1,142 @@
+category,base_contract,total_contracts,reentrant_contracts,misclassified_contracts,percent_misclassified
+00_BasicCall,"['00_BasicCall_ree1.sol' '00_BasicCall_safe1.sol' '00_BasicCall_ree1'
+ '00_BasicCall_safe1']",4,2,4.0,100.0
+00_BasicCross,['00_BasicCross_ree1.sol' '00_BasicCross_ree1'],2,2,2.0,100.0
+00_BasicEmit,"['00_BasicEmit_ree1.sol' '00_BasicEmit_safe1.sol' '00_BasicEmit_ree1'
+ '00_BasicEmit_safe1']",4,2,4.0,100.0
+00_BasicError,"['00_BasicError_ree1.sol' '00_BasicError_safe1.sol' '00_BasicError_ree1'
+ '00_BasicError_safe1']",4,2,4.0,100.0
+00_BasicFold,"['00_BasicFold_ree1.sol' '00_BasicFold_ree2.sol' '00_BasicFold_safe1.sol'
+ '00_BasicFold_safe2.sol' '00_BasicFold_ree1' '00_BasicFold_ree2'
+ '00_BasicFold_safe1' '00_BasicFold_safe2']",8,4,8.0,100.0
+05_SingleSend,"['05_SingleSend_safe1.sol' '05_SingleSend_safe2.sol'
+ '05_SingleSend_safe3.sol' '05_SingleSend_safe1' '05_SingleSend_safe2'
+ '05_SingleSend_safe3']",6,0,6.0,100.0
+05_SingleSendEmit,['05_SingleSendEmit_safe1.sol' '05_SingleSendEmit_safe1'],2,0,2.0,100.0
+04_CrossModFoldSem,['04_CrossModFoldSem_safe1.sol' '04_CrossModFoldSem_safe1'],2,0,2.0,100.0
+00_BasicUnchecked,"['00_BasicUnchecked_ree1.sol' '00_BasicUnchecked_safe1.sol'
+ '00_BasicUnchecked_ree1' '00_BasicUnchecked_safe1']",4,2,4.0,100.0
+08_MixedSendFoldEmit,"['08_MixedSendFoldEmit_ree1.sol' '08_MixedSendFoldEmit_safe1.sol'
+ '08_MixedSendFoldEmit_ree1' '08_MixedSendFoldEmit_safe1']",4,2,4.0,100.0
+12_Proxy,"['12_Proxy_safe1.sol' '12_Proxy_safe2.sol' '12_Proxy_safe1'
+ '12_Proxy_safe2']",4,0,4.0,100.0
+17_Rari,"['17_Rari_ree1.sol' '17_Rari_ree2.sol' '17_Rari_safe1.sol'
+ '17_Rari_safe2.sol' '17_Rari_ree1' '17_Rari_safe1' '17_Rari_safe2'
+ '17_Rari_ree2']",8,4,8.0,100.0
+18_RariStaticcall,"['18_RariStaticcall_ree1.sol' '18_RariStaticcall_safe1.sol'
+ '18_RariStaticcall_ree1' '18_RariStaticcall_safe1']",4,2,4.0,100.0
+10_OnlyOnce,"['10_OnlyOnce_safe1.sol' '10_OnlyOnce_safe2.sol' '10_OnlyOnce_safe1'
+ '10_OnlyOnce_safe2']",4,0,4.0,100.0
+09_ERC20DDSub,"['09_ERC20DDSub_ree1.sol' '09_ERC20DDSub_safe1.sol' '09_ERC20DDSub_ree1'
+ '09_ERC20DDSub_safe1']",4,2,4.0,100.0
+09_ERC20OnlyOnce,"['09_ERC20OnlyOnce_ree1.sol' '09_ERC20OnlyOnce_safe1.sol'
+ '09_ERC20OnlyOnce_safe2.sol' '09_ERC20OnlyOnce_safe1'
+ '09_ERC20OnlyOnce_safe2' '09_ERC20OnlyOnce_ree1']",6,2,6.0,100.0
+09_ERC20Staticcall,['09_ERC20Staticcall_ree1.sol' '09_ERC20Staticcall_ree1'],2,2,2.0,100.0
+07_MixedTransfer,"['07_MixedTransfer_ree1.sol' '07_MixedTransfer_safe1.sol'
+ '07_MixedTransfer_ree1' '07_MixedTransfer_safe1']",4,2,4.0,100.0
+09_ERC20DD,"['09_ERC20DD_ree1.sol' '09_ERC20DD_safe1.sol' '09_ERC20DD_ree1'
+ '09_ERC20DD_safe1']",4,2,4.0,100.0
+09_ERC20DDMod,"['09_ERC20DDMod_ree1.sol' '09_ERC20DDMod_ree2.sol'
+ '09_ERC20DDMod_ree3.sol' '09_ERC20DDMod_safe1.sol' '09_ERC20DDMod_ree2'
+ '09_ERC20DDMod_safe1' '09_ERC20DDMod_ree3' '09_ERC20DDMod_ree1']",8,6,8.0,100.0
+08_MixedSendFold,"['08_MixedSendFold_ree1.sol' '08_MixedSendFold_safe1.sol'
+ '08_MixedSendFold_ree1' '08_MixedSendFold_safe1']",4,2,4.0,100.0
+08_MixedSend,"['08_MixedSend_ree1.sol' '08_MixedSend_safe1.sol' '08_MixedSend_ree1'
+ '08_MixedSend_safe1']",4,2,4.0,100.0
+07_MixedTransferEmit,"['07_MixedTransferEmit_ree1.sol' '07_MixedTransferEmit_safe1.sol'
+ '07_MixedTransferEmit_ree1' '07_MixedTransferEmit_safe1']",4,2,4.0,100.0
+05_SingleSendEmitUnchecked,['05_SingleSendEmitUnchecked_safe1.sol' '05_SingleSendEmitUnchecked_safe1'],2,0,2.0,100.0
+09_ERC20DDSubMod,"['09_ERC20DDSubMod_ree1.sol' '09_ERC20DDSubMod_ree2.sol'
+ '09_ERC20DDSubMod_ree3.sol' '09_ERC20DDSubMod_safe1.sol'
+ '09_ERC20DDSubMod_ree2' '09_ERC20DDSubMod_ree3' '09_ERC20DDSubMod_ree1'
+ '09_ERC20DDSubMod_safe1']",8,6,7.0,87.5
+19_HumanFold,"['19_HumanFold_ree1.sol' '19_HumanFold_ree2.sol' '19_HumanFold_ree3.sol'
+ '19_HumanFold_safe1.sol' '19_HumanFold_ree1' '19_HumanFold_ree2'
+ '19_HumanFold_ree3' '19_HumanFold_safe1']",8,6,7.0,87.5
+16_DelegateCall,"['16_DelegateCall_ree1.sol' '16_DelegateCall_ree2.sol'
+ '16_DelegateCall_ree3.sol' '16_DelegateCall_safe1.sol'
+ '16_DelegateCall_ree2' '16_DelegateCall_ree3' '16_DelegateCall_ree1'
+ '16_DelegateCall_safe1']",8,6,7.0,87.5
+19_Human,"['19_Human_ree1.sol' '19_Human_ree2.sol' '19_Human_ree3.sol'
+ '19_Human_ree4.sol' '19_Human_safe1.sol' '19_Human_safe2.sol'
+ '19_Human_safe3.sol' '19_Human_ree2' '19_Human_ree3' '19_Human_ree4'
+ '19_Human_safe1' '19_Human_safe2' '19_Human_safe3' '19_Human_ree1']",14,8,12.0,85.71428571428571
+11_ERC20StakingPullMod,"['11_ERC20StakingPullMod_ree1.sol' '11_ERC20StakingPullMod_ree2.sol'
+ '11_ERC20StakingPullMod_safe1.sol' '11_ERC20StakingPullMod_ree2'
+ '11_ERC20StakingPullMod_ree1' '11_ERC20StakingPullMod_safe1']",6,4,5.0,83.33333333333334
+15_LoopCrossMutex,"['15_LoopCrossMutex_ree1.sol' '15_LoopCrossMutex_safe1.sol'
+ '15_LoopCrossMutex_safe2.sol' '15_LoopCrossMutex_ree1'
+ '15_LoopCrossMutex_safe1' '15_LoopCrossMutex_safe2']",6,2,5.0,83.33333333333334
+13_OnlyOwner,"['13_OnlyOwner_ree1.sol' '13_OnlyOwner_safe1.sol' '13_OnlyOwner_ree1'
+ '13_OnlyOwner_safe1']",4,2,3.0,75.0
+15_Loop,['15_Loop_ree1.sol' '15_Loop_safe1.sol' '15_Loop_safe1' '15_Loop_ree1'],4,2,3.0,75.0
+02_CrossMutexSem,"['02_CrossMutexSem_ree1.sol' '02_CrossMutexSem_safe1.sol'
+ '02_CrossMutexSem_ree1' '02_CrossMutexSem_safe1']",4,2,3.0,75.0
+02_CrossMutex,"['02_CrossMutex_ree1.sol' '02_CrossMutex_ree2.sol'
+ '02_CrossMutex_safe1.sol' '02_CrossMutex_safe2.sol' '02_CrossMutex_ree1'
+ '02_CrossMutex_ree2' '02_CrossMutex_safe2' '02_CrossMutex_safe1']",8,4,6.0,75.0
+01_SingleMutexFoldSem,"['01_SingleMutexFoldSem_ree1.sol' '01_SingleMutexFoldSem_safe1.sol'
+ '01_SingleMutexFoldSem_ree1' '01_SingleMutexFoldSem_safe1']",4,2,3.0,75.0
+01_SingleMutex,"['01_SingleMutex_ree1.sol' '01_SingleMutex_ree2.sol'
+ '01_SingleMutex_safe1.sol' '01_SingleMutex_safe2.sol'
+ '01_SingleMutex_safe1' '01_SingleMutex_safe2' '01_SingleMutex_ree1'
+ '01_SingleMutex_ree2']",8,4,6.0,75.0
+02_CrossMutexUnchecked,"['02_CrossMutexUnchecked_ree1.sol' '02_CrossMutexUnchecked_safe1.sol'
+ '02_CrossMutexUnchecked_safe1' '02_CrossMutexUnchecked_ree1']",4,2,3.0,75.0
+00_BasicConst,"['00_BasicConst_ree1.sol' '00_BasicConst_safe1.sol' '00_BasicConst_ree1'
+ '00_BasicConst_safe1']",4,2,3.0,75.0
+00_BasicNoChecks,"['00_BasicNoChecks_ree1.sol' '00_BasicNoChecks_safe1.sol'
+ '00_BasicNoChecks_ree1' '00_BasicNoChecks_safe1']",4,2,3.0,75.0
+03_SingleModFoldSem,"['03_SingleModFoldSem_ree1.sol' '03_SingleModFoldSem_safe1.sol'
+ '03_SingleModFoldSem_ree1' '03_SingleModFoldSem_safe1']",4,2,3.0,75.0
+03_SingleModSem,"['03_SingleModSem_ree1.sol' '03_SingleModSem_safe1.sol'
+ '03_SingleModSem_ree1' '03_SingleModSem_safe1']",4,2,3.0,75.0
+14_SidefxInline,"['14_SidefxInline_ree1.sol' '14_SidefxInline_safe1.sol'
+ '14_SidefxInline_ree1' '14_SidefxInline_safe1']",4,2,3.0,75.0
+03_SingleMod,"['03_SingleMod_ree1.sol' '03_SingleMod_ree2.sol' '03_SingleMod_ree3.sol'
+ '03_SingleMod_safe2.sol' '03_SingleMod_safe1.sol' '03_SingleMod_ree1'
+ '03_SingleMod_ree2' '03_SingleMod_safe1' '03_SingleMod_safe2'
+ '03_SingleMod_ree3']",10,6,7.0,70.0
+04_CrossMod,"['04_CrossMod_ree1.sol' '04_CrossMod_ree2.sol' '04_CrossMod_ree3.sol'
+ '04_CrossMod_ree4.sol' '04_CrossMod_ree5.sol' '04_CrossMod_safe1.sol'
+ '04_CrossMod_safe2.sol' '04_CrossMod_safe3.sol' '04_CrossMod_ree1'
+ '04_CrossMod_ree2' '04_CrossMod_ree3' '04_CrossMod_ree5'
+ '04_CrossMod_safe1' '04_CrossMod_safe3' '04_CrossMod_ree4'
+ '04_CrossMod_safe2']",16,10,11.0,68.75
+11_ERC20StakingPull,"['11_ERC20StakingPull_ree1.sol' '11_ERC20StakingPull_safe1.sol'
+ '11_ERC20StakingPull_safe2.sol' '11_ERC20StakingPull_safe1'
+ '11_ERC20StakingPull_ree1' '11_ERC20StakingPull_safe2']",6,2,4.0,66.66666666666666
+01_SingleMutexFold,"['01_SingleMutexFold_ree1.sol' '01_SingleMutexFold_ree2.sol'
+ '01_SingleMutexFold_ree3.sol' '01_SingleMutexFold_safe1.sol'
+ '01_SingleMutexFold_safe1' '01_SingleMutexFold_ree1'
+ '01_SingleMutexFold_ree2' '01_SingleMutexFold_ree3']",8,6,5.0,62.5
+15_LoopCrossMod,"['15_LoopCrossMod_ree1.sol' '15_LoopCrossMod_ree2.sol'
+ '15_LoopCrossMod_ree3.sol' '15_LoopCrossMod_safe1.sol'
+ '15_LoopCrossMod_ree1' '15_LoopCrossMod_ree2' '15_LoopCrossMod_safe1'
+ '15_LoopCrossMod_ree3']",8,6,5.0,62.5
+04_CrossModFold,"['04_CrossModFold_ree1.sol' '04_CrossModFold_ree2.sol'
+ '04_CrossModFold_ree3.sol' '04_CrossModFold_safe1.sol'
+ '04_CrossModFold_ree1' '04_CrossModFold_ree3' '04_CrossModFold_ree2'
+ '04_CrossModFold_safe1']",8,6,5.0,62.5
+03_SingleModFold,"['03_SingleModFold_ree1.sol' '03_SingleModFold_ree2.sol'
+ '03_SingleModFold_ree3.sol' '03_SingleModFold_safe1.sol'
+ '03_SingleModFold_ree3' '03_SingleModFold_ree1' '03_SingleModFold_safe1'
+ '03_SingleModFold_ree2']",8,6,5.0,62.5
+11_ERC20Staking,"['11_ERC20Staking_ree1.sol' '11_ERC20Staking_ree2.sol'
+ '11_ERC20Staking_ree3.sol' '11_ERC20Staking_safe1.sol'
+ '11_ERC20Staking_safe2.sol' '11_ERC20Staking_safe3.sol'
+ '11_ERC20Staking_ree3' '11_ERC20Staking_safe1' '11_ERC20Staking_ree2'
+ '11_ERC20Staking_ree1' '11_ERC20Staking_safe2' '11_ERC20Staking_safe3']",12,6,7.0,58.333333333333336
+05_SingleSendUnchecked,['05_SingleSendUnchecked_safe1.sol' '05_SingleSendUnchecked_safe1'],2,0,1.0,50.0
+09_ERC20,"['09_ERC20_ree1.sol' '09_ERC20_safe1.sol' '09_ERC20_safe2.sol'
+ '09_ERC20_safe3.sol' '09_ERC20_safe3' '09_ERC20_ree1' '09_ERC20_safe1'
+ '09_ERC20_safe2']",8,2,4.0,50.0
+06_SingleTransfer,"['06_SingleTransfer_safe1.sol' '06_SingleTransfer_safe2.sol'
+ '06_SingleTransfer_safe1' '06_SingleTransfer_safe2']",4,0,1.0,25.0
+06_SingleTransferUnchecked,"['06_SingleTransferUnchecked_safe1.sol'
+ '06_SingleTransferUnchecked_safe2.sol' '06_SingleTransferUnchecked_safe1'
+ '06_SingleTransferUnchecked_safe2']",4,0,1.0,25.0
+00_BasicStaticcall,['00_BasicStaticcall_safe1.sol' '00_BasicStaticcall_safe1'],2,0,0.0,0.0
+00_BasicNoCall,['00_BasicNoCall_safe1.sol' '00_BasicNoCall_safe1'],2,0,0.0,0.0
+12_ProxyStaticcall,['12_ProxyStaticcall_safe1.sol' '12_ProxyStaticcall_safe1'],2,0,0.0,0.0
