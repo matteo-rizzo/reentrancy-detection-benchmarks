@@ -10,13 +10,13 @@ contract C {
     }
 
     function withdraw(uint256 amt) public {
-        require(balances[msg.sender] >= amt, "Insufficient funds");
-        update(amt);
-        pay(amt);
+        require(balances[msg.sender] > 0, "Insufficient funds");
+        update(balances[msg.sender]);
+        pay(balances[msg.sender]);
     }
 
     function update(uint256 amt) internal {
-        balances[msg.sender] -= amt;
+        balances[msg.sender] = 0;
     }
 
     function deposit() public payable {

@@ -6,11 +6,11 @@ contract C {
 
     address private target = 0xD591678684E7c2f033b5eFF822553161bdaAd781;    // coin_base
 
-    function withdraw(uint256 amt) public {
-        require(balances[msg.sender] >= amt, "Insufficient funds");
-        (bool success, ) = target.call{value:amt}("");
+    function withdraw() public {
+        require(balances[msg.sender] > 0, "Insufficient funds");
+        (bool success, ) = target.call{value:balances[msg.sender]}("");
         require(success, "Call failed");
-        balances[msg.sender] -= amt;
+        balances[msg.sender] = 0; // side-effect after external call
     }
 
     function deposit() public payable {

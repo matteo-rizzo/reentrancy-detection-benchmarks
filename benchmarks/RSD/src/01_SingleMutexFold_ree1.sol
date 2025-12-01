@@ -9,19 +9,20 @@ contract C {
         flag = !flag;
     }
 
-    function withdraw(uint256 amt) public {
+    function withdraw() public {
         require(!flag, "Locked");
+        //toggle();
 
-        require(balances[msg.sender] >= amt, "Insufficient funds");
-        (bool success, ) = msg.sender.call{value:amt}("");
+        require(balances[msg.sender] > 0, "Insufficient funds");
+        (bool success, ) = msg.sender.call{value:balances[msg.sender]}("");
         require(success, "Call failed");
-        balances[msg.sender] -= amt;
-
+        balances[msg.sender] = 0; // side-effect after external call
 
         toggle();
     }
 
     function deposit() public payable {
+        require(!flag, "Locked");
         balances[msg.sender] += msg.value;       
     }
 

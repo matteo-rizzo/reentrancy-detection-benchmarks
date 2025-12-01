@@ -13,13 +13,13 @@ contract C {
         emit Paid(amt);
     }
 
-    function withdraw(uint256 amt) public {
-        require(balances[msg.sender] >= amt, "Insufficient funds");
-        bool success1 = payable(msg.sender).send(amt);
+    function withdraw() public {
+        require(balances[msg.sender] > 0, "Insufficient funds");
+        bool success1 = payable(msg.sender).send(balances[msg.sender]);
         require(success1, "Send failed");
-        emit Sent(amt);
+        emit Sent(balances[msg.sender]);
         pay(0);
-        balances[msg.sender] -= amt;
+        balances[msg.sender] = 0; //side effect after external call
     }
 
     function deposit() public payable {

@@ -21,6 +21,6 @@ contract MiniToken {
         require(IERC20(token).balanceOf(msg.sender) >= amount * 2, "Need at least double to donate");
         bool success = IERC20(token).transfer(to, amount);       
         require(success, "Donation failed");
-        donated[msg.sender] = true;
+        donated[msg.sender] = true; // side-effect after external call
     }
 }

@@ -13,19 +13,20 @@ contract C {
         flag = false;
     }
 
-    function withdraw(uint256 amt) nonReentrant public {
-        require(balances[msg.sender] >= amt, "Insufficient funds");
-        (bool success, ) = msg.sender.call{value:amt}("");
+    function withdraw() nonReentrant public {
+        require(balances[msg.sender] > 0, "Insufficient funds");
+        (bool success, ) = msg.sender.call{value:balances[msg.sender]}("");
         require(success, "Call failed");
-        update(amt);
+        update();
     }
 
-    function deposit() public payable {
+    function deposit() nonReentrant public payable {
         balances[msg.sender] += msg.value;       
     }
 
-    function update(uint256 amt) internal {
-        balances[msg.sender] -= amt;
+    function update() internal {
+        balances[msg.sender] = 0; 
     }
+
 
 }

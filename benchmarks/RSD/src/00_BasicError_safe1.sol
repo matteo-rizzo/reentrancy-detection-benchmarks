@@ -6,11 +6,11 @@ contract C {
 
     error InsufficientFunds(address caller, uint256 amt);
 
-    function withdraw(uint256 amt) public {
-        if(balances[msg.sender] < amt)
-            revert InsufficientFunds(msg.sender, amt);
-        balances[msg.sender] -= amt;
-        (bool success, ) = msg.sender.call{value:amt}("");
+    function withdraw() public {
+        if(balances[msg.sender] < 0)
+            revert InsufficientFunds(msg.sender, balances[msg.sender]);
+        balances[msg.sender] = 0;
+        (bool success, ) = msg.sender.call{value:balances[msg.sender]}("");
         require(success, "Call failed");
     }
 

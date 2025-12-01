@@ -6,17 +6,22 @@ contract C {
     mapping (address => uint256) public balances;
 
 
-    function withdraw(uint256 amt) public {
-        flag = true;
+    function withdraw() public {
+        require(!flag, "Locked");
+        //flag = true;
 
-
-        require(balances[msg.sender] >= amt, "Insufficient funds");
-        balances[msg.sender] -= amt;
-        (bool success, ) = msg.sender.call{value:amt}("");
+        require(balances[msg.sender] > 0, "Insufficient funds");
+        
+        (bool success, ) = msg.sender.call{value:balances[msg.sender]}("");
         require(success, "Call failed");
-
+        balances[msg.sender] = 0; // side-effect after external call
 
         flag = false;
+    }
+
+    function deposit() public payable {
+        require(!flag, "Locked");
+        balances[msg.sender] += msg.value;       
     }
 
 }

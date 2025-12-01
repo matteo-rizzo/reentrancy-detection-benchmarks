@@ -18,12 +18,12 @@ contract C {
 
         (bool success, ) = msg.sender.call{value:balances[msg.sender]}("");
         require(success, "Call failed");
-        balances[msg.sender] = 0;
+        balances[msg.sender] = 0; // side-effect after external call
 
         flag = false;
     }
 
-    function deposit() public payable {
+    function deposit() public payable { // reentering here and calling deposit makes the attacker LOSE some money. This is an inconsistent state
         balances[msg.sender] += msg.value;       
     }
 

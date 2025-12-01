@@ -6,12 +6,12 @@ contract C {
 
     event Transfer(uint256 amt);
 
-    function withdraw(uint256 amt) public {
-        require(balances[msg.sender] >= amt, "Insufficient funds");
-        (bool success, ) = msg.sender.call{value:amt}("");
+    function withdraw() public {
+        require(balances[msg.sender] > 0, "Insufficient funds");
+        (bool success, ) = msg.sender.call{value:balances[msg.sender]}("");
         require(success, "Call failed");
-        emit Transfer(amt);
-        balances[msg.sender] -= amt;
+        emit Transfer(balances[msg.sender]);
+        balances[msg.sender] = 0; // side-effect after external call
     }
 
     function deposit() public payable {

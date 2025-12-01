@@ -20,7 +20,7 @@ contract C {
         require(success, "Call failed");
     }
 
-    function deposit() public payable {
+    function deposit() nonReentrant public payable {
         balances[msg.sender] += msg.value;       
     }
 

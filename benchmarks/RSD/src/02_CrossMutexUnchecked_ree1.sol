@@ -15,12 +15,11 @@ contract C {
         require(!flag, "Locked");
         flag = true;
 
-
         require(balances[msg.sender] >= amt, "Insufficient funds");
         (bool success, ) = msg.sender.call{value:amt}("");
         require(success, "Call failed");
-        unchecked {
-            balances[msg.sender] -= amt;
+        unchecked { // disables automatic revert in Solidity 0.8+ if underflows happens
+            balances[msg.sender] -= amt; // side-effect after external call
         }
 
         flag = false;

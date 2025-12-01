@@ -5,7 +5,7 @@ contract C {
     bool flag = false;
     mapping (address => uint256) public balances;
 
-    function transfer(address to, uint256 amt) public {
+    function transfer(address to, uint256 amt) public { 
         require(!flag, "Locked");
         require(balances[msg.sender] >= amt, "Insufficient funds");
         balances[to] += amt;

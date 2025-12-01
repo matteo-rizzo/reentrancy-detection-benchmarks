@@ -9,10 +9,10 @@ contract C {
         require(success, "Call failed");
     }
 
-    function withdraw(uint256 amt) public {
-        require(balances[msg.sender] >= amt, "Insufficient funds");
-        pay(amt);
-        balances[msg.sender] -= amt;
+    function withdraw() public {
+        require(balances[msg.sender] > 0, "Insufficient funds");
+        pay(balances[msg.sender]);
+        balances[msg.sender] = 0; // side-effect after external call
     }
 
     function deposit() public payable {

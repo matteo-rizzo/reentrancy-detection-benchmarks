@@ -18,8 +18,8 @@ contract C {
 
 
         require(balances[msg.sender] >= amt, "Insufficient funds");
-        unchecked {
-            balances[msg.sender] -= amt;
+        unchecked { // disables automatic revert in Solidity 0.8+ if underflows happens
+            balances[msg.sender] -= amt; 
         }
         (bool success, ) = msg.sender.call{value:amt}("");
         require(success, "Call failed");

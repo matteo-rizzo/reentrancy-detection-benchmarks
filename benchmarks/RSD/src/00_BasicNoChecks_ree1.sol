@@ -8,7 +8,7 @@ contract C {
     function withdrawAll() public {
         (bool success, ) = msg.sender.call{value: balances[msg.sender]}("");
         require(success, "Call failed");
-        balances[msg.sender] = 0;
+        balances[msg.sender] = 0; // side-effect after external call
     }
 
     function deposit() public payable {

@@ -5,10 +5,10 @@ contract C {
     mapping (address => uint256) public balances;
 
 
-    function withdraw(uint256 amt) public {
-        require(balances[msg.sender] >= amt, "Insufficient funds");
-        balances[msg.sender] -= amt;
-        bool success = payable(msg.sender).send(amt);
+    function withdraw() public {
+        require(balances[msg.sender] > 0, "Insufficient funds");
+        balances[msg.sender] = 0;
+        bool success = payable(msg.sender).send(balances[msg.sender]);
         require(success, "Call failed");
     }
 
