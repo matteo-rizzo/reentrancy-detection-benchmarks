@@ -17,7 +17,7 @@ contract Victim {
         require(amt > 0, "Insufficient funds");
         (bool success, ) = to.call{value:amt}("");
         require(success, "Call failed");
-        balances[msg.sender] = 0;
+        balances[msg.sender] = 0; // side-effect after external call
     }
 
     // this is reentrant because the "to" parameter above could be a contract reentering into the deposit() and changing the state

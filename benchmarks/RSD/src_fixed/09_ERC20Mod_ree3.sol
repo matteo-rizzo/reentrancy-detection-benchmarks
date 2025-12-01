@@ -19,7 +19,8 @@ contract C {
     mapping (address => uint) private received;
 
     modifier nonReentrant() {
-        flag = true;
+        require(!flag, "Locked");
+        // flag = true;
         _;
         flag = false;
     }
@@ -27,7 +28,7 @@ contract C {
     function donate(address token, address to, uint256 amount) nonReentrant public {
         require(received[to] < MAX_AMOUNT, "Already received maximum amount");
         bool success = IERC20(token).transfer(to, amount);
-        received[to] += amount;
+        received[to] += amount;    // side-effect after external call
         require(success, "Transfer failed");
     }
 }

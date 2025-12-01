@@ -33,7 +33,7 @@ contract StakableToken {
         emit Staked(msg.sender, amount);
         bool success = token.transferFrom(msg.sender, address(this), amount);
         require(success, "transferFrom failed");
-        stakedAmounts[msg.sender] += amount;
+        stakedAmounts[msg.sender] += amount; // side-effect after external call
     }
 
     function unstake(uint256 amount) external {

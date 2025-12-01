@@ -2,8 +2,8 @@
 pragma solidity ^0.8.0;
 
 interface IAlpha {
-    function totalETHView() external view returns (uint256);
-    function totalSupplyView() external view returns (uint256);
+    function totalETHView() external returns (uint256);
+    function totalSupplyView() external returns (uint256);
     function work(address strategy) external payable;
 }
 
@@ -15,17 +15,25 @@ interface IRari {
     function withdraw() external returns (uint256);
 }
 
-// CONTROL FLOW: A.execute() -> LOOP { V.withdraw() -> A.receive() -> O.work() -> A.execute() -> V.withdraw() ... }
 
+// CONTROL FLOW: A.execute() -> LOOP { V.withdraw() -> A.receive() -> O.work() -> A.execute() -> V.withdraw() ... }
 
 contract A is IRari {
     IAlpha public alpha;
+    bool private flag;
 
     constructor(address _alpha) {
         alpha = IAlpha(_alpha);
     }
 
-    function withdraw() external returns (uint256) {
+    modifier mod() {
+        require(!flag, "Locked");
+        flag = true;
+        _;
+        flag = false;
+    }
+
+    function withdraw() mod external returns (uint256) {
         uint256 rate = alpha.totalETHView() * 1e18 / alpha.totalSupplyView();
         uint256 amountETH = rate * 1000 / 1e18;
 
@@ -47,7 +55,7 @@ contract B is IAlpha {
     function work(address strategy) external payable {
         totalETH += msg.value;
         IStrategy(strategy).execute();
-        totalSupply += msg.value;
+        totalSupply += msg.value; // side-effect after external call
     }
 
     function totalETHView() external view returns (uint256) {

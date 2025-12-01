@@ -13,11 +13,11 @@ contract C {
         flag = false;
     }
 
-    function withdraw(uint256 amt) nonReentrant public {
-        require(balances[msg.sender] >= amt, "Insufficient funds");
-        (bool success, ) = msg.sender.call{value:amt}("");
+    function withdraw() nonReentrant public {
+        require(balances[msg.sender] > 0, "Insufficient funds");
+        (bool success, ) = msg.sender.call{value:balances[msg.sender]}("");
         require(success, "Call failed");
-        balances[msg.sender] -= amt; // automatic revert in Solidity 0.8+ if underflows happens
+        balances[msg.sender] = 0; // automatic revert in Solidity 0.8+ if underflows happens
     }
 
     function deposit() nonReentrant public payable {

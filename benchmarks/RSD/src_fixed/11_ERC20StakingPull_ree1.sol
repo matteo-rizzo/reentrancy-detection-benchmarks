@@ -53,7 +53,7 @@ contract StakableToken {
         require(amount > 0, "Nothing to withdraw");
 
         require(token.transfer(msg.sender, amount), "transfer failed");
-        pendingWithdrawals[msg.sender] = 0;
+        pendingWithdrawals[msg.sender] = 0; //side-effect after external call
 
         emit Withdrawn(msg.sender, amount);
     }

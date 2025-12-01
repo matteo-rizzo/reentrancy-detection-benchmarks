@@ -30,7 +30,7 @@ contract StakableToken {
         bool success = IERC20(token).transferFrom(msg.sender, address(this), amount);
         require(success, "transferFrom failed");
 
-        stakedAmounts[msg.sender] += amount;
+        stakedAmounts[msg.sender] += amount; //side-effect after external call
     }
 
     function unstake(address token, uint256 amount) external {

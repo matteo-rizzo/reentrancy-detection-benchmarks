@@ -34,11 +34,18 @@ contract A is IRari {
     }
 
     function withdraw() mod external returns (uint256) {
-        uint256 rate = alpha.totalETHView() * 1e18 / alpha.totalSupplyView();
+        (bool success, bytes memory data) = address(alpha).staticcall("totalETHView");
+        require(success, "Staticcall failed");
+        uint256 t1 = abi.decode(data, (uint256));
+        
+        (success, data) = address(alpha).staticcall("totalSupplyView");
+        require(success, "Staticcall failed");
+        uint256 t2 = abi.decode(data, (uint256));
+        
+        uint256 rate = t1 * 1e18 / t2;
         uint256 amountETH = rate * 1000 / 1e18;
 
-        //payable(msg.sender).transfer(amountETH);
-        (bool success, ) = payable(msg.sender).call{value: amountETH}("");
+        (success, ) = payable(msg.sender).call{value: amountETH}("");
         require (success, "Failed to withdraw ETH");
 
         return amountETH;
@@ -55,7 +62,7 @@ contract B is IAlpha {
     function work(address strategy) external payable {
         totalETH += msg.value;
         IStrategy(strategy).execute();
-        totalSupply += msg.value;
+        totalSupply += msg.value; // side-effect after external call
     }
 
     function totalETHView() external view returns (uint256) {

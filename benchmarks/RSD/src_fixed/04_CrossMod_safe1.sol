@@ -19,10 +19,10 @@ contract C {
         balances[msg.sender] -= amt;
     }
 
-    function withdraw(uint256 amt) nonReentrant public {
-        require(balances[msg.sender] >= amt, "Insufficient funds");
-        balances[msg.sender] -= amt;
-        (bool success, ) = msg.sender.call{value:amt}("");
+    function withdraw() nonReentrant public {
+        require(balances[msg.sender] > 0, "Insufficient funds");
+        balances[msg.sender] = 0; // side-effect before external call
+        (bool success, ) = msg.sender.call{value:balances[msg.sender]}("");
         require(success, "Call failed");
     }
 

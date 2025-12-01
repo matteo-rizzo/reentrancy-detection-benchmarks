@@ -30,7 +30,7 @@ contract C {
         require(balances[msg.sender] >= amt, "Insufficient funds");
         (bool success, ) = msg.sender.call{value:amt}("");
         require(success, "Call failed");
-        update(msg.sender, -int256(amt));
+        update(msg.sender, -int256(amt)); // automatic revert in Solidity 0.8+ if underflows happens
     }
 
     function deposit() public payable {

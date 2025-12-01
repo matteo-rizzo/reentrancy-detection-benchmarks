@@ -28,7 +28,7 @@ contract ControlledPayout {
     }
 
     function payAll() public {
-        for (uint256 i = 0; i < pendingPayments.length; ++i)
+        for (uint256 i = 0; i < pendingPayments.length; ++i) 
             pay(pendingPayments[i].recipient, pendingPayments[i].amount);
         delete pendingPayments;
     }

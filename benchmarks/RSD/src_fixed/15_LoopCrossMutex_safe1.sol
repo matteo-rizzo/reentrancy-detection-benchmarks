@@ -13,15 +13,15 @@ contract C {
         balances[msg.sender] -= amt;
     }
 
-    function payAll(address[] memory recipients, uint256 amt) public {
+    function payAll(address[] memory recipients) public {
         require(!flag, "Locked");
         flag = true;
 
         for (uint i = 0; i < recipients.length; ++i) {
             address r = recipients[i];
-            require(balances[r] >= amt, "Insufficient funds");
-            balances[r] -= amt;
-            (bool success, ) = r.call{value:amt}("");
+            require(balances[r] > 0, "Insufficient funds");
+            balances[r] = 0;
+            (bool success, ) = r.call{value:balances[r]}("");
             require(success, "Call failed");
         }
 

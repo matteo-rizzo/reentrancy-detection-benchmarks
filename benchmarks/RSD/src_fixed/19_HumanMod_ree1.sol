@@ -3,7 +3,14 @@ pragma solidity ^0.8.0;
 // SPDX-License-Identifier: GPL-3.0
 contract C {
     mapping (address => uint256) public balances;
+    bool private flag;
 
+    modifier nonReentrant() {
+        // require(!flag, "Locked");
+        flag = true;
+        _;
+        flag = false;
+    }
     modifier isHuman() {
         address _addr = msg.sender;
         uint256 _codeLength;
@@ -12,11 +19,11 @@ contract C {
         _;
     }
 
-    function transfer(address to, uint256 amt) isHuman() public {
-        require(balances[msg.sender] >= amt, "Insufficient funds");
-        (bool success, ) = to.call{value:amt}("");
+    function transfer(address to) isHuman() nonReentrant public {
+        require(balances[msg.sender] > 0, "Insufficient funds");
+        (bool success, ) = to.call{value:balances[msg.sender]}("");
         require(success, "Call failed");
-        balances[msg.sender] -= amt;
+        balances[msg.sender] = 0;
     }
 
     

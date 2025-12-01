@@ -52,7 +52,7 @@ contract StakableToken {
         require(amount > 0, "Nothing to withdraw");
 
         emit Withdrawn(msg.sender, amount);
-        pendingWithdrawals[msg.sender] = 0;
+        pendingWithdrawals[msg.sender] = 0;  
         require(token.transfer(msg.sender, amount), "transfer failed");
     }
 }

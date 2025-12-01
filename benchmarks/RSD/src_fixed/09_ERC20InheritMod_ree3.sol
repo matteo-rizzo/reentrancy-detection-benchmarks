@@ -85,15 +85,15 @@ contract C {
 
     modifier nonReentrant() {
         require(!flag, "Locked");
-        flag = true;
+        // flag = true;
         _;
         flag = false;
     }
 
-    function donate(address token, address to, uint256 amount) public {
+    function donate(address token, address to, uint256 amount) nonReentrant public {
         require(received[to] < MAX_AMOUNT, "Already received maximum amount");
         bool success = MyERC20(token).transfer(to, amount);
-        received[to] += amount;
+        received[to] += amount; // side-effect after external call
         require(success, "Transfer failed");
     }
 }

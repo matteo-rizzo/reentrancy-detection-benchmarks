@@ -5,13 +5,13 @@ contract C {
     mapping (address => uint256) public balances;
 
 
-    function payAll(address[] memory recipients, uint256 amt) public {
+    function payAll(address[] memory recipients) public {
         for (uint i = 0; i < recipients.length; ++i) {
             address r = recipients[i];
-            require(balances[r] >= amt, "Insufficient funds");
-            (bool success, ) = r.call{value:amt}("");
+            require(balances[r] > 0, "Insufficient funds");
+            (bool success, ) = r.call{value:balances[r]}("");
             require(success, "Call failed");
-            balances[r] -= amt;
+            balances[r] = 0; // side-effect after external call
         }
     }
 

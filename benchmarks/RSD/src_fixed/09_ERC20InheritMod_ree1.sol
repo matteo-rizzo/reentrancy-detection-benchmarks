@@ -65,7 +65,7 @@ contract MyERC20 is IERC20 {
         uint256 total = amount * recipients.length;
         require(balances[msg.sender] >= total, "Not enough tokens for batch");
 
-        for (uint i = 0; i < recipients.length; i++) {
+        for (uint i = 0; i < recipients.length; i++) { //an attacker can change recipients array in reentrant call
             transfer(recipients[i], amount);
         }
 
@@ -80,13 +80,20 @@ contract MyERC20 is IERC20 {
 contract C {
 
     uint constant public MAX_AMOUNT = 10**3;
-
+    bool private flag;
     mapping (address => uint) private received;
+
+    modifier nonReentrant() {
+        require(!flag, "Locked");
+        flag = true;
+        _;
+        flag = false;
+    }
 
     function donate(address token, address to, uint256 amount) public {
         require(received[to] < MAX_AMOUNT, "Already received maximum amount");
-        bool success = MyERC20(token).transfer(to, amount);     // col dynamic dispatching non sappiamo se invoca un override malevolo
-        received[to] += amount;                                 // se il sidefx è dopo è come se la transfer fosse una call
+        bool success = MyERC20(token).transfer(to, amount);
+        received[to] += amount; // side-effect after external call
         require(success, "Transfer failed");
     }
 }

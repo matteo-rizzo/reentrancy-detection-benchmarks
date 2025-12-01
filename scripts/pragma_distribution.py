@@ -59,7 +59,7 @@ def count_pragmas_in_folder(folder):
 
 
 if __name__ == "__main__":
-    folder = "../benchmarks/aggregated-benchmark/raw/safe"
+    folder = "../benchmarks/aggregated-benchmark/raw/reentrant"
     exact, major = count_pragmas_in_folder(folder)
 
     print("Contracts per normalized pragma version:")
