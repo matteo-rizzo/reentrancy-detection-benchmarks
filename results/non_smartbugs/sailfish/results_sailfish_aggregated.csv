@@ -5,7 +5,7 @@ raw/reentrant/0x05f49e3e0a27efa05d60c19cd8f0ecc951d3717e_rs.sol,0x05f49e3e0a27ef
 raw/reentrant/0x0a3ed956f14d3c725f2a04117e2f25b12dd3dec3.sol,0x0a3ed956f14d3c725f2a04117e2f25b12dd3dec3.sol,sailfish,,,,,,,,,,
 raw/reentrant/0x0ad3227eb47597b566ec138b3afd78cfea752de5.sol,0x0ad3227eb47597b566ec138b3afd78cfea752de5.sol,sailfish,,,,,,,,,,
 raw/reentrant/0x0ad8f9bb50f4a04de224acf3345892147757f173.sol,0x0ad8f9bb50f4a04de224acf3345892147757f173.sol,sailfish,,,,,,,,,,
-raw/reentrant/0x0addedfee0e8a65c9a60067b9fe0f24af96da51d_hg.sol,0x0addedfee0e8a65c9a60067b9fe0f24af96da51d_hg.sol,sailfish,,,,,,,,,,
+raw/reentrant/0x0addedfee0e8a65c9a60067b9fe0f24af96da51d_hg.sol,0x0addedfee0e8a65c9a60067b9fe0f24af96da51d_hg.sol,sailfish,,,,,,,"[""dao"", ""tod_amount_or_receiver""]",,,
 raw/reentrant/0x0da76de0916ef2da3c58a97e4d09d501c56a9f15_rs.sol,0x0da76de0916ef2da3c58a97e4d09d501c56a9f15_rs.sol,sailfish,,,,,,,,,,
 raw/reentrant/0x0eb68f34efa0086e4136bca51fc4d0696580643e_rs.sol,0x0eb68f34efa0086e4136bca51fc4d0696580643e_rs.sol,sailfish,,,,,,,"[""dao"", ""tod_amount_or_receiver""]",,,
 raw/reentrant/0x13a399fe6c5b38b247e1477016f5fc7c3f6b3ccb_hg.sol,0x13a399fe6c5b38b247e1477016f5fc7c3f6b3ccb_hg.sol,sailfish,,,,,,,"[""tod_transfer"", ""tod_amount_or_receiver""]",,,
