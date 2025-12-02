@@ -1,4 +1,4 @@
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.20;
 
 // SPDX-License-Identifier: GPL-3.0
 contract C {
@@ -6,10 +6,10 @@ contract C {
 
     address private target = 0xD591678684E7c2f033b5eFF822553161bdaAd781;    // coin_base
 
-    function withdraw(uint256 amt) public {
-        require(balances[msg.sender] >= amt, "Insufficient funds");
-        balances[msg.sender] -= amt;
-        (bool success, ) = target.call{value:amt}("");
+    function withdraw() public {
+        require(balances[msg.sender] > 0, "Insufficient funds");
+        balances[msg.sender] = 0;
+        (bool success, ) = target.call{value:balances[msg.sender]}("");
         require(success, "Call failed");
     }
 

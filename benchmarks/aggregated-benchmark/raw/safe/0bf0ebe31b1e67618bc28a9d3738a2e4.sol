@@ -1,4 +1,5 @@
 // Refund contract for trust DAO #7
+pragma solidity ^0.4.13;
 
 contract DAO {
     function balanceOf(address addr) returns (uint);

@@ -1,4 +1,4 @@
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.20;
 
 // SPDX-License-Identifier: GPL-3.0
 contract C {
@@ -9,10 +9,10 @@ contract C {
         require(success, "Call failed");
     }
 
-    function withdraw(uint256 amt) public {
-        require(balances[msg.sender] >= amt, "Insufficient funds");
-        balances[msg.sender] -= amt;
-        pay(amt);
+    function withdraw() public {
+        require(balances[msg.sender] > 0, "Insufficient funds");
+        balances[msg.sender] = 0;
+        pay(balances[msg.sender]);
     }
 
     function deposit() public payable {

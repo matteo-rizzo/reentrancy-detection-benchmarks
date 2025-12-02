@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-3.0
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.20;
 
 contract Proxy {
     function forward(address target, address user) external view returns (uint256 result) {

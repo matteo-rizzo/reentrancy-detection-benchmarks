@@ -2,6 +2,11 @@
 
 BASE_DIR="${1:-.}"
 
+if [ -z "$BASE_DIR" ]; then
+    echo "Errore: specify a path."
+    exit 1
+fi
+
 rm -rf bins
 
 find "$BASE_DIR" -type f -name "*.sol" | while read -r file; do
