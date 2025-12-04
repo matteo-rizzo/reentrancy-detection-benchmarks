@@ -9,7 +9,7 @@ The two primary datasets contributed are:
       * [Consolidated Ground Truth (CGT)](https://github.com/gsalzer/cgt) (`cgt`)
       * [HuangGai (HG)](https://github.com/xf97/HuangGai) (`hg`)
       * [Reentrancy Study (RS)](https://github.com/InPlusLab/ReentrancyStudy-Data) (`rs`)
-2.  **Reentrancy Scenarios (RS):** A novel, handcrafted set of **150 unique contracts**. This dataset is specifically constructed to represent a defined systematization **of reentrancy scenarios**, including those that are subtle, involve modern Solidity features, or exhibit complex control flows, making them challenging for existing detectors. Each contract in the RS has also been manually verified and labeled according to our systematization.
+2.  **Reentrancy Scenarios Dataset (RSD):** A novel, handcrafted set of **154 unique contracts**. This dataset is specifically constructed to represent a defined systematization **of reentrancy scenarios**, including those that are subtle, involve modern Solidity features, or exhibit complex control flows, making them challenging for existing detectors. Each contract in the RS has also been manually verified and labeled according to our systematization.
 
 This repository includes the original source data (where permissible by original licenses), scripts for preprocessing the initial aggregated pool, and, most importantly, the final benchmark datasets themselves.
 
