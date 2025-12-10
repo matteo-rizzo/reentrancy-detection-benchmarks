@@ -1,7 +1,7 @@
 # Reentrancy Detection Tools in the Age of LLMs
 
-This repository includes the data and the supplementary material to the submission to the FSE 2026 conference entitled `Reentrancy Detection Tools in the Age of LLMs`.
-It provides two curated and **manually verified** benchmark datasets for reentrancy vulnerability research in Solidity smart contracts. Our goal is to offer high-quality resources that address the limitations of noisy, automatically-labeled datasets commonly used in prior work. All contracts in the final benchmarks are labeled according to a **clearly defined reentrancy systematization** detailed in our accompanying paper.
+This repository includes the data and supplementary material for the submission to the DSN 2026 conference, entitled `Reentrancy Detection Tools in the Age of LLMs`.
+It provides two curated and **manually verified** benchmark datasets for reentrancy vulnerability research in Solidity smart contracts. Our goal is to provide high-quality resources that address the limitations of noisy, automatically labeled datasets commonly used in prior work. All contracts in the final benchmarks are labeled according to a **clearly defined reentrancy systematization** detailed in our accompanying paper.
 
 The two primary datasets contributed are:
 
@@ -9,9 +9,9 @@ The two primary datasets contributed are:
       * [Consolidated Ground Truth (CGT)](https://github.com/gsalzer/cgt) (`cgt`)
       * [HuangGai (HG)](https://github.com/xf97/HuangGai) (`hg`)
       * [Reentrancy Study (RS)](https://github.com/InPlusLab/ReentrancyStudy-Data) (`rs`)
-2.  **Reentrancy Scenarios Dataset (RSD):** A novel, handcrafted set of **154 unique contracts**. This dataset is specifically constructed to represent a defined systematization **of reentrancy scenarios**, including those that are subtle, involve modern Solidity features, or exhibit complex control flows, making them challenging for existing detectors. Each contract in the RS has also been manually verified and labeled according to our systematization.
+2.  **Reentrancy Scenarios Dataset (RSD):** A novel, handcrafted set of **154 unique contracts**. This dataset is specifically constructed to represent a defined systematization **of reentrancy scenarios**, including those that are subtle, involve modern Solidity features, or exhibit complex control flows, making them challenging for existing detectors. Each contract in the RS has also been manually verified and labeled in accordance with our systematization.
 
-This repository includes the original source data (where permissible by original licenses), scripts for preprocessing the initial aggregated pool, and, most importantly, the final benchmark datasets themselves.
+This repository includes the source data (where permissible by original licenses), scripts for preprocessing the initial aggregated pool, and, most importantly, the final benchmark datasets themselves.
 
 -----
 
@@ -25,11 +25,11 @@ This initial phase involves creating a large pool of unique, compilable Solidity
   * **Merge study data (`scripts/merge_studies.py`):** Combines contracts from the source study directories (assumed to be placed in `cgt/`, `hg/`, `rs/` locally within a staging area like `source_datasets/`). Files are renamed (`{contract_address}_{study_ID}.sol`).
   * **Deduplicate contracts (`scripts/deduplicate.py`):** Removes exact duplicates based on file hashes.
   * **Filter compilable contracts (`scripts/filter_compilable_contracts.sh`):** Retains only contracts that compile successfully using standard `solc` compilers (versions 0.4.\* to 0.8.\*, matching contract pragmas).
-  * **Remove non-custom/library code (`scripts/prune.py`):** Filters out common OpenZeppelin libraries or other non-custom code not central to the contract's unique logic.
+  * **Remove non-custom/library code (`scripts/prune.py`):** Filters out common OpenZeppelin libraries or other non-custom code not central to the contract’s unique logic.
 
 **Notes on Original Source Preprocessing:**
 
-  * **`hg` Dataset:** The original `hg` dump included `.txt` files with line numbers for detected issues. These are omitted here to focus on source code. The `hg/dumpt2contracts.py` script was used for initial filtering of relevant files from the original `hg` source.
+  * **`hg` Dataset:** The original `hg` dump included `.txt` files with line numbers for detected issues. These are omitted here to focus on the source code. The `hg/dumpt2contracts.py` script was used to filter relevant files from the original `hg` source.
   * **`rs` Dataset:** Contracts from the original `rs` study were initially categorized using its `reentrancy_information.csv`. The `rs/dumpt2contracts.py` script was used for this initial split.
 
 **2. Manual Verification & Final Benchmark Creation (Core Contribution):**
@@ -45,10 +45,10 @@ Following the initial preprocessing, a manual verification phase was undertaken 
   * **Reentrancy Scenarios (RS):**
 
       * This is a separate, novel collection of **150 handcrafted or carefully selected contracts.**
-      * It is constructed to cover a **defined systematization of reentrancy scenarios**, focusing on patterns that are subtle, involve modern Solidity features, or exhibit complex control flows, thus challenging existing detectors.
+      * It is constructed to cover a **defined systematization of reentrancy scenarios**, focusing on subtle patterns, involving modern Solidity features, or exhibiting complex control flows, thus challenging existing detectors.
       * All 150 reentrancy scenarios were **manually created and/or verified** according to our systematization, with their labels (reentrant/safe within the context of the specific scenario) confirmed.
-        - In the `src` subfolder all Solidity source files are collected
-        - In the `bins` subfolder all binary compiled files are collected in hex format
+        - In the `src` subfolder, all Solidity source files are collected
+        - In the `bins` subfolder, all binary compiled files are collected in hex format
         - Multiple `.csv` files contain the results of the analyzer tool (launched through Smartbugs)
 
 -----
@@ -57,10 +57,10 @@ Following the initial preprocessing, a manual verification phase was undertaken 
 
 The final, manually verified benchmark datasets are the primary contributions intended for direct use in research:
 
-  * **Aggregated Benchmark (436 contracts):** Located in `/benchmarks/aggregated-benchmark/`
-  * **Reentrancy Scenarios (RS - 150 handcrafted contracts):** Located in `/benchmarks/rs/`
+  * **Aggregated Benchmark (436 contracts):** Located in `/benchmarks/aggregated-benchmark/`.
+  * **Reentrancy Scenarios (RS - 150 handcrafted contracts):** Located in `/benchmarks/rs/`.
 
-The scripts in the `/scripts` directory (at the project root) are available for users interested in reproducing the preprocessing steps for the initial, larger contract pool from the original sources. The scripts for running experiments on the final datasets are located within the `src/` directory.
+The scripts in the `/scripts` directory (at the project root) are available for users interested in reproducing the preprocessing steps for the initial, larger contract pool from the sources. The scripts for running experiments on the final datasets are located within the `src/` directory.
 
 -----
 
@@ -76,7 +76,7 @@ The `scripts/` directory at the root of the project contains tools for initial d
 6.  **`source2ast.sh`**: (Utility) Generates Abstract Syntax Trees (ASTs) using `solc --ast`.
 7.  **`source2cfg.py`**: (Utility) Generates Control Flow Graphs (CFGs) using Slither. Requires `slither-analyzer`.
 
-*(Refer to the `src/` directory for scripts related to running ML, DL, and LLM experiments as detailed in the "Reproducing Experiments" section below).*
+*(Refer to the `src/` directory for scripts related to running ML, DL, and LLM experiments as detailed in the “Reproducing Experiments” section below).*
 
 -----
 
@@ -111,9 +111,9 @@ This section guides you through reproducing the experiments presented in our pap
 
 ### 3\. Dataset Preparation for Model Experiments
 
-While the root-level `scripts/` prepare a large initial pool, for running the ML/DL/LLM experiments as described in the paper, you will primarily use the final, manually verified datasets located in `/final_benchmarks/`.
+While the root-level `scripts/` prepare a large initial pool for running the ML/DL/LLM experiments as described in the paper, you will primarily use the final, manually verified datasets located in `/final_benchmarks/`.
 
-  * The script `src/ml_dl/scripts/create_dataset_manually_verified.py` is responsible for taking these final benchmark contracts and structuring them into the specific train/validation/test splits (e.g., using 3-fold cross-validation) required by the ML/DL models. Consult this script for its exact inputs and outputs.
+  * The script `src/ml_dl/scripts/create_dataset_manually_verified.py` is responsible for taking these final benchmark contracts and structuring them into the specific train/validation/test splits (e.g., using 3-fold cross-validation) required by the ML/DL models. Please take a look at this script for its exact inputs and outputs.
   * LLM experiments will run on test splits derived from these final benchmarks.
 
 > **Note**: Exact splits used for the experiments are reported in the `cv_splits.zip` files in the `benchmarks` subfolders.
@@ -130,7 +130,7 @@ Experiment scripts are primarily located within `src/ml_dl/scripts/` and `src/ll
       * **Feed Forward Neural Network (FFNN):** Run via `ffnn.py`.
       * **LSTM Network:** Run via `lstm.py`.
       * **CodeBERT:** Run via `codebert.py`.
-  * A `run_all.sh` script within this directory orchestrate these experiments.
+  * A `run_all.sh` script within this directory orchestrates these experiments.
   * Scripts like `single_split_dl_classifiers.py` and `single_split_ml_classifiers.py` are used for specific test runs.
   * These scripts perform 3-fold cross-validation and output performance metrics.
 
@@ -152,7 +152,7 @@ Experiment scripts are primarily located within `src/ml_dl/scripts/` and `src/ll
   * Reproducing this part involves:
     1.  Setting up the [SmartBugs framework](https://github.com/smartbugs/smartbugs).
     2.  Running the selected static tools via SmartBugs on the **Aggregated Benchmark** and **Reentrancy Scenarios (RS)**.
-    3.  Parsing tool outputs to classify contracts according to the paper's methodology.
+    3.  Parsing tool outputs to classify contracts according to the paper’s methodology.
 
 ### 5\. Expected Outputs
 
@@ -177,10 +177,10 @@ Experiment scripts are primarily located within `src/ml_dl/scripts/` and `src/ll
 
 ## License
 
-The dataset and scripts in this repository are distributed for research and educational purposes. Please review the LICENSE file for more information.
+The dataset and scripts in this repository are distributed for research and educational purposes. Please take a look at the LICENSE file for more information.
 
 -----
 
 ## Disclaimer
 
-This repository aims to provide **manually verified** datasets to assist with reentrancy analysis and research on Solidity smart contracts. However, any **usage of the dataset is entirely at your own risk**. Smart contracts are inherently risky, and security issues may remain undetected. Always conduct your own independent audits before deploying or interacting with any contract.
+This repository provides **manually verified** datasets to support reentrancy analysis and research on Solidity smart contracts. However, any **usage of the dataset is entirely at your own risk**. Smart contracts are inherently risky, and security issues may remain undetected. You should always conduct your own independent audits before deploying or interacting with any contract.
