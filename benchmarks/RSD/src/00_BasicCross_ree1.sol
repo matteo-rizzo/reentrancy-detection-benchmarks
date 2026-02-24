@@ -17,6 +17,7 @@ contract C {
         balances[msg.sender] = 0; // side-effect after external call
     }
 
+    // the only way to prevent this cross-function reentrancy is to use mutexes
     function deposit() public payable {
         balances[msg.sender] += msg.value;       
     }
